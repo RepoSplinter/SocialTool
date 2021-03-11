@@ -10,7 +10,7 @@ export default class FeedService {
     feedListRef: AngularFireList<any>;
     feedRef: AngularFireObject<any>;
 
-    constructor(private db: AngularFireDatabase, private notifService: FeedService) {
+    constructor(private db: AngularFireDatabase) {
         this.feedListRef = this.db.list('/feeds');
     }
 

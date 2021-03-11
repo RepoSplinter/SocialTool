@@ -24,5 +24,13 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-list >
+    <ion-item button lines="none" *ngFor="let notif of notifs" [routerLink]="page_item.link"
+      routerDirection="forward" style="--min-height: 56px;">
+      <ion-fab-button slot="start" size="small" [color]="page_item.color" style="width: 30px;height: 30px;">
+        <ion-icon size="small" color="light" [name]="page_item.icon"></ion-icon>
+      </ion-fab-button>
+      <ion-label>{{'settings_notifications.' + notif.id | translate}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
