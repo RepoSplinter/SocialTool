@@ -4,6 +4,7 @@ import { FakerService } from '../../services/faker/faker.service';
 import { FormControl, Validators } from '@angular/forms';
 import SecurityService from 'src/app/services/security/security.service';
 import FeedService from 'src/app/services/feed/feed.service';
+import NotificationService from 'src/app/services/notification/notification.service'
 
 @Component({
   selector: 'app-feed',
@@ -19,6 +20,7 @@ export class FeedPage implements OnInit {
   constructor(
     private modelCtl: ModalController,
     private feedService: FeedService,
+    private notifService: NotificationService,
     private securityService: SecurityService) {
 
   }
@@ -41,6 +43,12 @@ export class FeedPage implements OnInit {
         shared: 0
       }
       this.feedService.post(feed);
+      const notif = {
+        user: this.securityService.getUser(),
+        content: 'New Post from qds',
+        date: new Date()
+      }
+      this.notifService.addNotif(notif);
       this.modelCtl.dismiss();
 
     }

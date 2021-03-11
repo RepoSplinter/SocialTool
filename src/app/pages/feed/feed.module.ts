@@ -10,9 +10,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     FeedPageRoutingModule,
-
     SharedModule
   ],
   declarations: [FeedPage]
 })
-export class FriendsPageModule { }
+export class FeedModule { }

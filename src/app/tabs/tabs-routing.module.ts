@@ -21,7 +21,7 @@ const routes: Routes = [
           },
           {
             path: 'feed',
-            loadChildren: () => import('../pages/feed/feed.module').then(m => m.FriendsPageModule)
+            loadChildren: () => import('../pages/feed/feed.module').then(m => m.FeedModule)
           }
         ]
       },

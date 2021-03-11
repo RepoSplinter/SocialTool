@@ -9,7 +9,6 @@ import { StoriesComponent } from '../../shared/components/stories/stories.compon
 import { FakerService } from '../../services/faker/faker.service';
 import { FeedPage } from '../../pages/feed/feed.page';
 import FeedService from 'src/app/services/feed/feed.service';
-
 @Component({
   selector: 'app-news',
   templateUrl: 'news.page.html',
