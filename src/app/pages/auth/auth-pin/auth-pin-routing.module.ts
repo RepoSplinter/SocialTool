@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthPinPage } from './auth-pin.page';
 
-const routes: Routes = [
+const routes: Routes = [   
   {
     path: '',
     component: AuthPinPage
