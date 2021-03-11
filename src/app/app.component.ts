@@ -16,6 +16,7 @@ import { actionSettingsChangeTheme } from './shared/ngrx/settings/settings.actio
 import { FakerService } from './services/faker/faker.service';
 import { AppEventsService } from './services/app-events/app-events.service';
 import { map, take } from 'rxjs/operators';
+import FeedService from './services/feed/feed.service';
 
 @Component({
   selector: 'app-root',
@@ -60,14 +61,11 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private cameraPreview: CameraPreview,
     private screenOrientation: ScreenOrientation,
-
+    private feedService: FeedService,
     private router: Router,
     private translate: TranslateService,
-
     private store: Store,
-
     private fakerService: FakerService,
-
     private appEvents: AppEventsService,
     private menu: MenuController,
     public loadingController: LoadingController
@@ -213,6 +211,17 @@ export class AppComponent implements OnInit {
     // take a picture
     this.cameraPreview.takePicture(this.pictureOpts).then((imageData) => {
       const img = 'data:image/jpeg;base64,' + imageData;
+      const feed = {
+        displayName: "Seeed Kdheiro",
+        photoURL: 'https://cdn.discordapp.com/avatars/473443120466362369/ac33007a266780f2bea157b611c37398.png?size=256',
+        picture : img,
+        type : 'image',
+        dateCreated: new Date(),
+        likes: 0,
+        comments: 0,
+        shared: 0
+      }
+      this.feedService.post(feed);
       // console.log(img);
     }, (err) => {
       console.log(err);
