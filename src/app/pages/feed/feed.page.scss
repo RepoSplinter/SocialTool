@@ -1,0 +1,12 @@
+:host.ion-page {
+    background-color: var(--ion-item-background);
+    --ion-background-color: var(--ion-item-background);
+}
+
+ion-content {
+    --background: var(--ion-item-background);
+}
+.feed-post{
+    background-color: yellowgreen;
+    padding: 10px;
+}
